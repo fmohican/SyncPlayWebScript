@@ -18,6 +18,9 @@ function listfl() {
       {
           if ($file != "." && $file != ".." && strtolower(substr($file, strrpos($file, '.') + 1)) == 'mkv' or strtolower(substr($file, strrpos($file, '.') + 1)) == 'mp4')
           {
+            if($_SERVER['SERVER_PORT'] == 443)
+              $thelist .= "https://".$_SERVER['HTTP_HOST']."/".rawurlencode($file)."<br/>";
+            else
               $thelist .= "http://".$_SERVER['HTTP_HOST']."/".rawurlencode($file)."<br/>";
           }
       }
